@@ -30,6 +30,8 @@ class nearbyViewController: UIViewController, CLLocationManagerDelegate, UITable
     
     var usersLocations: [CLLocation] = []
     
+    var colorDic = colorDicClass()
+    
     
 // ===========================================================
     @IBOutlet weak var myPositionLabel: UILabel!
@@ -75,7 +77,10 @@ class nearbyViewController: UIViewController, CLLocationManagerDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        let scoreString = NSString(format:"%.2f", userScoreDic[userslist[indexPath.row]]!) as String
+        let score = Float(scoreString)
+        let intscore = Int(score!)
+        
         let userCell = tableView.dequeueReusableCell(withIdentifier: "nearbyUsersCell", for: indexPath) as! nearbyUsersCell
         
         //        userCell.cellUserName.text = myArray[indexPath.row] as? String
@@ -84,7 +89,11 @@ class nearbyViewController: UIViewController, CLLocationManagerDelegate, UITable
         
         userCell.userScoreLabel.layer.cornerRadius = userCell.userScoreLabel.frame.size.height/2
         userCell.userScoreLabel.layer.borderWidth = 1
-        userCell.userScoreLabel.layer.borderColor = UIColor.black.cgColor
+//        userCell.userScoreLabel.layer.borderColor = UIColor.black.cgColor
+        userCell.userScoreLabel.layer.borderColor = colorDic.colorDic["\(intscore)"]?.cgColor
+        userCell.userScoreLabel.textColor = colorDic.colorDic["\(intscore)"]
+        userCell.userScoreLabel.backgroundColor = UIColor.white
+        userCell.userScoreLabel.clipsToBounds = true
         
         let storage = FIRStorage.storage()
         let imageAddress = userImageDic[ userslist[indexPath.row] ]! as String
@@ -103,6 +112,8 @@ class nearbyViewController: UIViewController, CLLocationManagerDelegate, UITable
         userCell.userImageView.clipsToBounds = true
         
         userCell.userDistanceLabel.text = NSString(format: "%.2f", usersLocationDic[userslist[indexPath.row]]!) as String + " M"
+        
+        userCell.backgroundColor = colorDic.colorDic["\(intscore)"]
         
         return userCell
         

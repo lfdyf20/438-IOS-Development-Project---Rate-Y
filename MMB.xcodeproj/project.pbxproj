@@ -15,10 +15,10 @@
 		4A40ADDC1DEF7E1F009F5600 /* friendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40ADDB1DEF7E1F009F5600 /* friendsViewController.swift */; };
 		4A40ADDE1DEF7EB6009F5600 /* friendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40ADDD1DEF7EB6009F5600 /* friendTableViewCell.swift */; };
 		4A45B9341DF3B22E00B6BC1D /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45B9331DF3B22E00B6BC1D /* mapViewController.swift */; };
-		4A45B9361DF3BDEF00B6BC1D /* userLocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45B9351DF3BDEF00B6BC1D /* userLocationInfo.swift */; };
 		4A5032831DDBF0AB0085C1BE /* otherUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5032821DDBF0AB0085C1BE /* otherUserViewController.swift */; };
 		4A5A7BAE1DE7DD06006538AE /* nearbyUsersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A7BAD1DE7DD06006538AE /* nearbyUsersCell.swift */; };
 		4A667D611DFF5D610034FEDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A667D601DFF5D610034FEDB /* Assets.xcassets */; };
+		4A667D631E008B360034FEDB /* customClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A667D621E008B360034FEDB /* customClasses.swift */; };
 		4A8604881DC13C530088ACBD /* logViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8604871DC13C530088ACBD /* logViewController.swift */; };
 		4A9F165C1DC1263800189D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F165B1DC1263800189D05 /* AppDelegate.swift */; };
 		4A9F165E1DC1263800189D05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F165D1DC1263800189D05 /* ViewController.swift */; };
@@ -59,10 +59,10 @@
 		4A40ADDB1DEF7E1F009F5600 /* friendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendsViewController.swift; sourceTree = "<group>"; };
 		4A40ADDD1DEF7EB6009F5600 /* friendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendTableViewCell.swift; sourceTree = "<group>"; };
 		4A45B9331DF3B22E00B6BC1D /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
-		4A45B9351DF3BDEF00B6BC1D /* userLocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userLocationInfo.swift; sourceTree = "<group>"; };
 		4A5032821DDBF0AB0085C1BE /* otherUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = otherUserViewController.swift; sourceTree = "<group>"; };
 		4A5A7BAD1DE7DD06006538AE /* nearbyUsersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearbyUsersCell.swift; sourceTree = "<group>"; };
 		4A667D601DFF5D610034FEDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4A667D621E008B360034FEDB /* customClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customClasses.swift; sourceTree = "<group>"; };
 		4A8604871DC13C530088ACBD /* logViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logViewController.swift; sourceTree = "<group>"; };
 		4A9F16581DC1263800189D05 /* MMB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9F165B1DC1263800189D05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +157,7 @@
 			children = (
 				4A9F165B1DC1263800189D05 /* AppDelegate.swift */,
 				4A9F165F1DC1263800189D05 /* Main.storyboard */,
+				4A667D621E008B360034FEDB /* customClasses.swift */,
 				4A38074A1DF261D10092935A /* historyViewController.swift */,
 				4A40ADDB1DEF7E1F009F5600 /* friendsViewController.swift */,
 				4AB7E1E61DDA6D62006657AB /* allUsersViewController.swift */,
@@ -170,7 +171,6 @@
 				4A9F16641DC1263800189D05 /* LaunchScreen.storyboard */,
 				4A9F16671DC1263800189D05 /* Info.plist */,
 				4A9F16891DC1281900189D05 /* GoogleService-Info.plist */,
-				4A45B9351DF3BDEF00B6BC1D /* userLocationInfo.swift */,
 				4AB7E1EA1DDA7886006657AB /* allUsersCellController.swift */,
 				4A5A7BAD1DE7DD06006538AE /* nearbyUsersCell.swift */,
 				4A40ADDD1DEF7EB6009F5600 /* friendTableViewCell.swift */,
@@ -507,7 +507,7 @@
 				4AB7E1E71DDA6D62006657AB /* allUsersViewController.swift in Sources */,
 				4A8604881DC13C530088ACBD /* logViewController.swift in Sources */,
 				4A5A7BAE1DE7DD06006538AE /* nearbyUsersCell.swift in Sources */,
-				4A45B9361DF3BDEF00B6BC1D /* userLocationInfo.swift in Sources */,
+				4A667D631E008B360034FEDB /* customClasses.swift in Sources */,
 				4AB7E1EB1DDA7886006657AB /* allUsersCellController.swift in Sources */,
 				4A3AFD921DF8614200DABC6D /* friendOtherUserViewController.swift in Sources */,
 				4A40ADDC1DEF7E1F009F5600 /* friendsViewController.swift in Sources */,

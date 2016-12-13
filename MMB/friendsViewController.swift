@@ -19,6 +19,7 @@ class friendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var friendScoreDic: [String: Float] = [:]
     var friendImageAddressDic: [String: String] = [:]
     var friendPostDic: [String: String] = [:]
+    var colorDic = colorDicClass()
     
     var selectedUserName = ""
     var selectedUserPost = ""
@@ -35,9 +36,14 @@ class friendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         if friendsArray.isEmpty{
             
         }else{
+            
+            let scoreString = NSString(format:"%.2f", friendScoreDic[friendsArray[indexPath.row]]!) as String
+            let score = Float(scoreString)
+            let intscore = Int(score!)
+            
             // set image
             let storage = FIRStorage.storage()
-            print(friendImageAddressDic)
+//            print(friendImageAddressDic)
             if let imageAddress = friendImageAddressDic[ friendsArray[indexPath.row] ]{
                 let gsRef = storage.reference(forURL: imageAddress)
                 gsRef.data(withMaxSize: 15 * 1024 * 1024) { (data, error) -> Void in
@@ -51,18 +57,29 @@ class friendsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 friendCell.userImage.layer.cornerRadius = friendCell.userImage.frame.size.height/2
                 friendCell.userImage.layer.borderWidth = 1
                 friendCell.userImage.layer.borderColor = UIColor.black.cgColor
+//                friendCell.userImage.layer.borderColor = colorDic.colorDic["\(intscore)"]?.cgColor
+
                 friendCell.userImage.clipsToBounds = true
             }
-            //set name
-            friendCell.userNameLabel.text = "  \(friendsArray[indexPath.row])"
-            friendCell.userNameLabel.layer.cornerRadius = 5
-            friendCell.userNameLabel.clipsToBounds = true
-            
+
+
             //set score
             friendCell.userScoreLabel.text = NSString(format:"%.2f", friendScoreDic[friendsArray[indexPath.row]]!) as String
             friendCell.userScoreLabel.layer.cornerRadius = friendCell.userScoreLabel.layer.frame.width/2
             friendCell.userScoreLabel.layer.borderWidth = 1
-            friendCell.userScoreLabel.layer.borderColor = UIColor.black.cgColor
+            friendCell.userScoreLabel.layer.borderColor = colorDic.colorDic["\(intscore)"]?.cgColor
+            friendCell.userScoreLabel.backgroundColor = colorDic.colorDic["\(intscore)"]
+            friendCell.userScoreLabel.clipsToBounds = true
+            friendCell.userScoreLabel.textColor = UIColor.white
+            
+            //set name
+            friendCell.userNameLabel.text = "  \(friendsArray[indexPath.row])"
+            friendCell.userNameLabel.layer.cornerRadius = 5
+            friendCell.userNameLabel.backgroundColor = colorDic.colorDic["\(intscore)"]
+            friendCell.userNameLabel.clipsToBounds = true
+            
+//            friendCell.userScoreLabel.backgroundColor = colorDic.colorDic["\(intscore)"]
+//            friendCell.userScoreLabel.clipsToBounds = true
             
             //set post
             friendCell.userDescriptionLabel.text = friendPostDic[ friendsArray[indexPath.row] ]
@@ -109,14 +126,14 @@ class friendsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
 //==========================================================================================
     func removeFriend( friendToRemove: String, indexPath: IndexPath ){
-        print("friend to remove \(friendToRemove)")
+//        print("friend to remove \(friendToRemove)")
         let friendRef = ref.child("Users").child(UserDefaults().string(forKey: "loginID")!).child("friends")
         var friendDic: [String: String] = [:]
         friendsArray.remove(at: indexPath.row)
         for (index, name) in friendsArray.enumerated(){
             friendDic[String(index)] = name
         }
-        print(friendDic)
+//        print(friendDic)
         friendRef.setValue(friendDic)
         self.friendsTableView.reloadData()
     }
@@ -183,9 +200,9 @@ class friendsViewController: UIViewController, UITableViewDelegate, UITableViewD
                             self.friendPostDic[user as! String] = (userInfo as! NSDictionary)["post"]! as? String
                         }
                     }
-                    print(self.friendsArray)
-                    print(self.friendScoreDic)
-                    print(self.friendImageAddressDic)
+//                    print(self.friendsArray)
+//                    print(self.friendScoreDic)
+//                    print(self.friendImageAddressDic)
                     self.friendsTableView.reloadData()
                 })
             }else{

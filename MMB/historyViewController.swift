@@ -14,7 +14,8 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
     var historyArray: [String] = []
     var ref = FIRDatabaseReference.init()
     var historyHandle = FIRDatabaseHandle.init()
-    var scoreColorDic = ["1":UIColor.red, "2":UIColor.yellow, "3":UIColor.green, "4":UIColor.blue, "5":UIColor.black]
+//    var scoreColorDic = ["1":UIColor.red, "2":UIColor.yellow, "3":UIColor.green, "4":UIColor.blue, "5":UIColor.black]
+    var scoreColorDic = colorDicClass()
     var selectedUserName = ""
     
     @IBOutlet weak var historyTableView: UITableView!
@@ -26,24 +27,30 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let historyCell = tableView.dequeueReusableCell(withIdentifier: "historycell", for: indexPath) as! historyTableViewCell
-//        print(historyArray[indexPath.row])
         let record = historyArray[indexPath.row]
         let recordArray = record.components(separatedBy: ";")
         let score = recordArray[0]
         let date = recordArray[1]
         let name = recordArray[2]
         
-        historyCell.historyRecordLabel.text = name
+        historyCell.historyRecordLabel.text = "  \(name)"
+        historyCell.historyRecordLabel.backgroundColor = scoreColorDic.colorDic[score]
+        historyCell.historyRecordLabel.layer.cornerRadius = 5
+        historyCell.historyRecordLabel.clipsToBounds = true
+        
+        
         historyCell.historyTimeLabel.text = date
         historyCell.historyScoreLabel.text = score
         
         historyCell.historyScoreLabel.textColor = UIColor.white
-        historyCell.historyScoreLabel.backgroundColor = scoreColorDic[score]
-        historyCell.historyScoreLabel.alpha = 0.6
+        historyCell.historyScoreLabel.backgroundColor = scoreColorDic.colorDic[score]
+        historyCell.historyScoreLabel.alpha = 1
         historyCell.historyScoreLabel.layer.cornerRadius = historyCell.historyScoreLabel.frame.width/2
-        historyCell.historyScoreLabel.layer.borderColor = scoreColorDic[score]?.cgColor
+        historyCell.historyScoreLabel.layer.borderColor = scoreColorDic.colorDic[score]?.cgColor
         historyCell.historyScoreLabel.layer.borderWidth = 1
         historyCell.historyScoreLabel.layer.masksToBounds = true
+        
+        
         
         return historyCell
     }
