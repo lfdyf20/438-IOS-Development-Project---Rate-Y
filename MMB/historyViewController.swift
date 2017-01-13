@@ -114,6 +114,8 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.navigationBar.isHidden = false
         self.tabBarController?.tabBar.items?.last?.badgeValue = nil
+        
+        self.ref.child("Users").child(UserDefaults().string(forKey: "loginID")!).child("haveNewMessages").removeValue()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
