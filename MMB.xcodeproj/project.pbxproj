@@ -155,26 +155,13 @@
 		4A9F165A1DC1263800189D05 /* MMB */ = {
 			isa = PBXGroup;
 			children = (
+				4AF09C841F70E6C6009F904A /* Class */,
+				4AF09C831F70E552009F904A /* Controller */,
 				4A9F165B1DC1263800189D05 /* AppDelegate.swift */,
 				4A9F165F1DC1263800189D05 /* Main.storyboard */,
-				4A667D621E008B360034FEDB /* customClasses.swift */,
-				4A38074A1DF261D10092935A /* historyViewController.swift */,
-				4A40ADDB1DEF7E1F009F5600 /* friendsViewController.swift */,
-				4AB7E1E61DDA6D62006657AB /* allUsersViewController.swift */,
-				4ACB165F1DE753F4002607F1 /* nearbyViewController.swift */,
-				4A45B9331DF3B22E00B6BC1D /* mapViewController.swift */,
-				4ACB165D1DE54578002607F1 /* userProfileController.swift */,
-				4A9F165D1DC1263800189D05 /* ViewController.swift */,
-				4A5032821DDBF0AB0085C1BE /* otherUserViewController.swift */,
-				4A3AFD911DF8614200DABC6D /* friendOtherUserViewController.swift */,
-				4A8604871DC13C530088ACBD /* logViewController.swift */,
 				4A9F16641DC1263800189D05 /* LaunchScreen.storyboard */,
 				4A9F16671DC1263800189D05 /* Info.plist */,
 				4A9F16891DC1281900189D05 /* GoogleService-Info.plist */,
-				4AB7E1EA1DDA7886006657AB /* allUsersCellController.swift */,
-				4A5A7BAD1DE7DD06006538AE /* nearbyUsersCell.swift */,
-				4A40ADDD1DEF7EB6009F5600 /* friendTableViewCell.swift */,
-				4A3807481DF261A80092935A /* historyTableViewCell.swift */,
 				4A667D601DFF5D610034FEDB /* Assets.xcassets */,
 			);
 			path = MMB;
@@ -196,6 +183,35 @@
 				4A9F167D1DC1263800189D05 /* Info.plist */,
 			);
 			path = MMBUITests;
+			sourceTree = "<group>";
+		};
+		4AF09C831F70E552009F904A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4A9F165D1DC1263800189D05 /* ViewController.swift */,
+				4A38074A1DF261D10092935A /* historyViewController.swift */,
+				4A40ADDB1DEF7E1F009F5600 /* friendsViewController.swift */,
+				4AB7E1E61DDA6D62006657AB /* allUsersViewController.swift */,
+				4ACB165F1DE753F4002607F1 /* nearbyViewController.swift */,
+				4A45B9331DF3B22E00B6BC1D /* mapViewController.swift */,
+				4ACB165D1DE54578002607F1 /* userProfileController.swift */,
+				4A5032821DDBF0AB0085C1BE /* otherUserViewController.swift */,
+				4A3AFD911DF8614200DABC6D /* friendOtherUserViewController.swift */,
+				4A8604871DC13C530088ACBD /* logViewController.swift */,
+				4AB7E1EA1DDA7886006657AB /* allUsersCellController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4AF09C841F70E6C6009F904A /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				4A667D621E008B360034FEDB /* customClasses.swift */,
+				4A5A7BAD1DE7DD06006538AE /* nearbyUsersCell.swift */,
+				4A40ADDD1DEF7EB6009F5600 /* friendTableViewCell.swift */,
+				4A3807481DF261A80092935A /* historyTableViewCell.swift */,
+			);
+			name = Class;
 			sourceTree = "<group>";
 		};
 		9C267E828E70AAF2BECB54AD /* Pods */ = {

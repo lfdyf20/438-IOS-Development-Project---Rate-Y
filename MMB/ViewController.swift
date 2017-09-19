@@ -176,8 +176,8 @@ class ViewController: UIViewController {
                             self.notificationNameScoreLabel.text = notificationContent
                             self.notificationView.backgroundColor = self.scoreColorDic.colorDic[score]
                             UIView.animate(withDuration: 1.5, delay: 0.5, options: UIViewAnimationOptions.curveEaseOut, animations: {
-                                self.notificationView.alpha = 1.0
-                                self.notificationNameScoreLabel.alpha = 1.0
+                                self.notificationView.alpha = 0.8
+                                self.notificationNameScoreLabel.alpha = 0.8
                             }, completion: nil)
                             UIView.animate(withDuration: 1.5, delay: 2, options: UIViewAnimationOptions.curveEaseOut, animations: {
                                 self.notificationView.alpha = 0
